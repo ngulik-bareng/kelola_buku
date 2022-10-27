@@ -219,7 +219,16 @@
             @yield('content')
         </div>
     </div>
-    </section>
+    </section> 
+    <section class="content">
+      <div class="card">
+          <div class="card-body">
+              @yield('content2')
+          </div>
+      </div>
+      </section>
+
+
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
