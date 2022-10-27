@@ -3,11 +3,11 @@
       <!-- Add icons to the links using the .nav-icon class
            with font-awesome or any other icon font library -->
 
-      {{-- Admin --}}
 
+      {{-- Admin --}}
       @if(Auth::user()->role_id == 1)
       <li class="nav-item">
-        <a href="/dashboard" class="nav-link">
+        <a href="/dashboard" class="nav-link @if(request()->route()->uri == 'dashboard') active @endif">
           <i class="nav-icon fas fa-tachometer-alt"></i>
           <p>
             Dashboard
@@ -17,27 +17,27 @@
       </li>
 
       <li class="nav-item">
-        <a href="/category" class="nav-link">
+        <a href="/category" class="nav-link @if(request()->route()->uri == 'category') active @endif" >
           <i class="far fa-circle nav-icon"></i>
           <p>Categories</p>
         </a>
       </li>
 
       <li class="nav-item">
-        <a href="/books" class="nav-link">
+        <a href="/books" class="nav-link @if(request()->route()->uri == 'books') active @endif">
           <i class="far fa-circle nav-icon"></i>
           <p>Books</p>
         </a>
       </li>
 
       <li class="nav-item">
-        <a href="/user" class="nav-link">
+        <a href="/user" class="nav-link @if(request()->route()->uri == 'user') active @endif">
           <i class="far fa-circle nav-icon"></i>
           <p>Users</p>
         </a>
       </li>
       <li class="nav-item">
-        <a href="/rentlogs" class="nav-link">
+        <a href="/rentlogs" class="nav-link @if(request()->route()->uri == 'rentlogs') active @endif">
           <i class="far fa-circle nav-icon"></i>
           <p>Rent Logs</p>
         </a>
@@ -52,9 +52,15 @@
       @else
       {{-- User --}}
       <li class="nav-item">
-        <a href="/profile" class="nav-link">
+        <a href="/profile" class="nav-link @if(request()->route()->uri == 'profile') active @endif">
           <i class="far fa-circle nav-icon"></i>
           <p>Profile</p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="/books" class="nav-link @if(request()->route()->uri == 'books') active @endif">
+          <i class="far fa-circle nav-icon"></i>
+          <p>Books</p>
         </a>
       </li>
       <li class="nav-item">
