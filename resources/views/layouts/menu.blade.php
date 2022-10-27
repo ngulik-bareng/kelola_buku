@@ -1,0 +1,71 @@
+<nav class="mt-2">
+    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+      <!-- Add icons to the links using the .nav-icon class
+           with font-awesome or any other icon font library -->
+
+      {{-- Admin --}}
+
+      @if(Auth::user()->role_id == 1)
+      <li class="nav-item">
+        <a href="/dashboard" class="nav-link">
+          <i class="nav-icon fas fa-tachometer-alt"></i>
+          <p>
+            Dashboard
+            <i class="right fas fa-angle-left"></i>
+          </p>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a href="/category" class="nav-link">
+          <i class="far fa-circle nav-icon"></i>
+          <p>Categories</p>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a href="/books" class="nav-link">
+          <i class="far fa-circle nav-icon"></i>
+          <p>Books</p>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a href="/user" class="nav-link">
+          <i class="far fa-circle nav-icon"></i>
+          <p>Users</p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="/rentlogs" class="nav-link">
+          <i class="far fa-circle nav-icon"></i>
+          <p>Rent Logs</p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="/logout" class="nav-link">
+          <i class="far fa-circle nav-icon"></i>
+          <p>Logout</p>
+        </a>
+      </li>
+      {{-- End Admin --}}
+      @else
+      {{-- User --}}
+      <li class="nav-item">
+        <a href="/profile" class="nav-link">
+          <i class="far fa-circle nav-icon"></i>
+          <p>Profile</p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="/logout" class="nav-link">
+          <i class="far fa-circle nav-icon"></i>
+          <p>Logout</p>
+        </a>
+      </li>
+      {{-- End User --}}
+      @endif
+
+     
+    </ul>
+  </nav>
