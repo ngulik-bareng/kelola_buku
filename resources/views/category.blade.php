@@ -10,7 +10,7 @@
                 <div class="card-header">
                   <h3 class="card-title">Bordered Table</h3>
                   <div class="d-flex justify-content-end">
-                    <a href="#" class="btn btn-primary">Tambah Data</a>
+                    <a href="category-add" class="btn btn-primary">Tambah Data</a>
                   </div>
                 </div>
                 <!-- /.card-header -->

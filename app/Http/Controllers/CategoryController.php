@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-    //
+    
     public function index(Request $request) {
 
 
@@ -16,5 +16,17 @@ class CategoryController extends Controller
         $categories = Category::all();
 
         return view('category', ['categories' => $categories]);
+    }
+
+    public function add() {
+
+        return view('category-add');
+
+    }
+
+    public function store(Request $request) {
+       
+        $category = Category::create($request->all());
+        return redirect('category');
     }
 }
