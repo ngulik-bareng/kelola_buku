@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title', 'Category')
+@section('title', 'Category-Deleted')
 
 @section('content')
 
@@ -11,10 +11,7 @@
                   <h3 class="card-title">Bordered Table</h3>
                   <div class="d-flex justify-content-end">
                     <div class="mr-3 d-block">
-                      <a href="category-deleted" class="btn btn-info me-3">Category Deleted</a>
-                    </div>
-                    <div class="m">
-                      <a href="category-add" class="btn btn-primary">Tambah Data</a>
+                      <a href="category" class="btn btn-dark me-3">Back</a>
                     </div>
                   </div>
                 </div>
@@ -36,13 +33,12 @@
                       </tr>
                     </thead>
                     <tbody>
-                    @foreach ($categories as $category)
+                    @foreach ($deletedCategories as $category)
                       <tr>
                         <td> {{ $loop->iteration }} </td>
                         <td> {{ $category->name}} </td>
                         <td>
-                          <a href="category-edit/{{$category->slug}} " class="btn btn-success">Edit</a>
-                          <a href="category-delete/{{$category->slug}}" class="btn btn-danger">Delete</a>
+                          <a href="/category-restore/{{$category->slug}} " class="btn btn-primary">Restore</a>
                         </td>
                       </tr>
                       @endforeach
