@@ -29,10 +29,24 @@
                             <label for="title" class="form-label">title</label>
                             <input type="text" class="form-control" name="title" id="title" placeholder="title" value="{{old('title')}}" required>
                           </div>
+                          <div class="mb-3">
+                            <div class="row">
+                                <div class="col-lg-7">         
+                                    <label for="category" class="form-label">Category</label>
+                                    <select name="categories" id="category" class="form-control">
+                                        <option value="">Pilih Kategori</option>
+                                        @foreach($categories as $category)
+                                        <option value="{{ $category->id}}">{{ $category->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                          </div>
                           <div class="custom-file mb-3 mt-3">
                             <input type="file" class="custom-file-input" id="image" name="image">
-                            <label class="custom-file-label" for="image" name="image">Choose file</label>
-                            </div>
+                            <label class="custom-file-label" for="image" name="image">Choose file Cover</label>
+                          </div>
+
                           <div class="d-flex justify-content-end">
                             <button type="submit" name="button" class="btn btn-primary px-3 d-flex justify-content-end">Tambah</button>
                           </div>
