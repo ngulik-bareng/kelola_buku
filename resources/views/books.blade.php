@@ -27,12 +27,13 @@
                         </div>
                     @endif
                   </div>
-                  <table class="table table-bordered">
+                  <table class="table table-bordered table-sm table-resposive">
                     <thead>
                       <tr>
                         <th style="width: 10%">No</th>
                         <th style="width: 15%">Code</th>
-                        <th style="width: 35%">Title</th>
+                        <th style="width: 25%">Title</th>
+                        <th style="width: 20%">Category</th>
                         <th style="width: 15%">Status</th>
                         <th>Action</th>
                       </tr>
@@ -43,6 +44,11 @@
                         <td> {{ $loop->iteration }} </td>
                         <td> {{ $book->book_code}} </td>
                         <td> {{ $book->title}} </td>
+                          <td>
+                            @foreach($book->CategoryBelongsToMany as $category)
+                             {{ $category->name}}<br>
+                            @endforeach
+                          </td>
                         <td> {{ $book->status}} </td>
                         <td>
                           <a href="book-edit/{{$book->slug}} " class="btn btn-success">Edit</a>

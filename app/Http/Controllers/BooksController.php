@@ -22,6 +22,9 @@ class BooksController extends Controller
 
     public function store(Request $request) 
     {
+
+        // dd($request->all());
+
         $validated = $request->validate([
             'book_code' => 'required|unique:books|max:255',
             'title' => 'required|max:255',
@@ -39,6 +42,7 @@ class BooksController extends Controller
 
         $request['cover'] = $newName;
         $book = Book::create($request->all());
+        $book->CategoryBelongsToMany()->sync($request->categories);
         return redirect('books')->with('status', 'Books Added Successfully');
     }
 }

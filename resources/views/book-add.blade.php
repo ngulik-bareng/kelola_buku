@@ -1,9 +1,11 @@
 @extends('layouts.main')
+
 @section('title', 'Book-Add')
 
 @section('content')
 
 <section class="content">
+
     <div class="card">
         <div class="card-body">
             <p>Book Add</p>
@@ -33,8 +35,7 @@
                             <div class="row">
                                 <div class="col-lg-7">         
                                     <label for="category" class="form-label">Category</label>
-                                    <select name="categories" id="category" class="form-control">
-                                        <option value="">Pilih Kategori</option>
+                                    <select name="categories[]"  class="select2bs4 form-control" multiple="multiple" id="category">
                                         @foreach($categories as $category)
                                         <option value="{{ $category->id}}">{{ $category->name }}</option>
                                         @endforeach
@@ -55,7 +56,14 @@
               </div>
         </div>
     </div>
-</section>
+
+    
+    
+  </section>
+  
+
+
+
 
 
  @endsection

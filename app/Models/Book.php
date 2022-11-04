@@ -31,8 +31,9 @@ class Book extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function roles(): BelongsToMany
+    public function CategoryBelongsToMany(): BelongsToMany
     {
         return $this->belongsToMany(Category::class, 'book_category', 'book_id', 'category_id');
     }
+
 }
