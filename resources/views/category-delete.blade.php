@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.theme')
 @section('title', 'Category-Delete')
 
 @section('content')
