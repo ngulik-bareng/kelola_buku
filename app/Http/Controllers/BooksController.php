@@ -45,4 +45,22 @@ class BooksController extends Controller
         $book->CategoryBelongsToMany()->sync($request->categories);
         return redirect('books')->with('status', 'Books Added Successfully');
     }
+
+    // edit
+    public function edit($slug) {
+        $book = Book::where('slug', $slug)->first();
+        $categories = Category::all();
+        return view('book-edit', ['categories' => $categories , 'book' => $book]);
+    }
+
+    // update
+    public function update(Request $request, $slug) {
+        $newName = '';
+        if($request->file('image')) 
+        {
+            $extension = $request->file('image')->getClientOriginalExtension();
+            $newName = $request->title.'-'.now()->timestamp.'.'.$extension;
+            $request->file('image')->storeAs('cover', $newName);
+        }
+    }
 }
