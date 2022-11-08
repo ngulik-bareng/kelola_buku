@@ -1,9 +1,9 @@
 @extends('layouts.theme')
-@section('title', 'Books')
+@section('title', 'Book-Deleted')
 
 @section('content')
 
- <section class="content">
+<section class="content">
     <div class="card">
         <div class="card-body">
             <div class="card">
@@ -11,10 +11,7 @@
                   <h3 class="card-title">Bordered Table</h3>
                   <div class="d-flex justify-content-end">
                     <div class="mr-3 d-block">
-                      <a href="/book-deleted" class="btn btn-info me-3">Book Deleted</a>
-                    </div>
-                    <div class="m">
-                      <a href="book-add" class="btn btn-primary">Tambah Data</a>
+                      <a href="/books" class="btn btn-dark me-3">Back</a>
                     </div>
                   </div>
                 </div>
@@ -27,32 +24,21 @@
                         </div>
                     @endif
                   </div>
-                  <table class="table table-bordered table-sm table-resposive">
+                  <table class="table table-bordered">
                     <thead>
                       <tr>
                         <th style="width: 10%">No</th>
-                        <th style="width: 15%">Code</th>
-                        <th style="width: 25%">Title</th>
-                        <th style="width: 20%">Category</th>
-                        <th style="width: 15%">Status</th>
+                        <th style="width: 60%">Book</th>
                         <th>Action</th>
                       </tr>
                     </thead>
                     <tbody>
-                    @foreach ($books as $book)
+                    @foreach ($deletedBook as $book)
                       <tr>
                         <td> {{ $loop->iteration }} </td>
-                        <td> {{ $book->book_code}} </td>
                         <td> {{ $book->title}} </td>
-                          <td>
-                            @foreach($book->CategoryBelongsToMany as $category)
-                             {{ $category->name}}<br>
-                            @endforeach
-                          </td>
-                        <td> {{ $book->status}} </td>
                         <td>
-                          <a href="book-edit/{{$book->slug}} " class="btn btn-success">Edit</a>
-                          <a href="book-delete/{{$book->slug}}" class="btn btn-danger">Delete</a>
+                          <a href="/book-restore/{{$book->slug}} " class="btn btn-primary">Restore</a>
                         </td>
                       </tr>
                       @endforeach
@@ -64,4 +50,6 @@
     </div>
 </section>
 
+
  @endsection
+

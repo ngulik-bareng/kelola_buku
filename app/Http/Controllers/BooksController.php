@@ -56,11 +56,49 @@ class BooksController extends Controller
     // update
     public function update(Request $request, $slug) {
         $newName = '';
+        // $choosenCategories = '';
         if($request->file('image')) 
         {
             $extension = $request->file('image')->getClientOriginalExtension();
             $newName = $request->title.'-'.now()->timestamp.'.'.$extension;
             $request->file('image')->storeAs('cover', $newName);
+            $request['cover'] = $newName;
         }
+
+        
+        
+        $book = Book::where('slug', $slug)->first();
+        $book->update($request->all());
+        if($request->categories) {
+            $book->CategoryBelongsToMany()->sync($request->categories);
+        }
+
+        return redirect('books')->with('status', 'Books update Successfully');
+    }
+
+    public function bookDelete($slug) {
+        $book = Book::where('slug', $slug)->first();
+        return view('book-delete', ['book' => $book]); 
+    }
+
+    public function destroy($slug) {
+        $book = Book::where('slug', $slug)->first();
+        $book->delete();
+        return redirect('books')->with('status', 'book Deleted Successfully');
+    }
+
+    public function bookDeleted()
+    {
+        $deletedBook = Book::onlyTrashed()->get();
+        return view('book-deleted', ['deletedBook' => $deletedBook]);
+    }
+
+    public function restore($slug)
+    {
+
+        $book = Book::withTrashed()->where('slug', $slug)->first();
+        $book->restore();
+        return redirect('books')->with('status', 'Book Restored Successfully');
+      
     }
 }

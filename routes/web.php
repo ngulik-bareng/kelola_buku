@@ -40,6 +40,10 @@ Route::middleware('auth')->group(function() {
     Route::post('book-add', [BooksController::class, 'store']);
     Route::get('book-edit/{slug}', [BooksController::class, 'edit']);
     Route::put('book-edit/{slug}', [BooksController::class, 'update']);
+    Route::get('book-delete/{slug}', [BooksController::class, 'bookDelete']);
+    Route::get('book-destroy/{slug}', [BooksController::class, 'destroy']);
+    Route::get('book-deleted', [BooksController::class, 'bookDeleted']);
+    Route::get('book-restore/{slug}', [BooksController::class, 'restore']);
 
 
     Route::get('category', [CategoryController::class, 'index']);
