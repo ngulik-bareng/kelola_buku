@@ -59,6 +59,13 @@ Route::middleware('auth')->group(function() {
 
     Route::get('rentlogs', [RentLogsController::class, 'index']);
     Route::get('user', [UserController::class, 'index']);
+    Route::get('user-add', [UserController::class, 'userAdd']);
+    Route::get('user-edit/{slug}', [UserController::class, 'userEdit']);
+    Route::get('user-approve/{slug}', [UserController::class, 'userApprove']);
+    Route::get('user-delete/{slug}', [UserController::class, 'userDelete']);
+    Route::get('user-destroy/{slug}', [UserController::class, 'userDestroy']);
+    Route::get('user-deleted', [UserController::class, 'userDeleted']);
+    Route::get('user-restore/{slug}', [UserController::class, 'restore']);
 });
 
 

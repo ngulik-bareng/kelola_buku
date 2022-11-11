@@ -1,21 +1,17 @@
 @extends('layouts.theme')
-@section('title', 'User')
+@section('title', 'User-Deleted')
 
 @section('content')
 
-
- <section class="content">
+<section class="content">
     <div class="card">
         <div class="card-body">
             <div class="card">
                 <div class="card-header">
-                  <h3 class="card-title">Daftar Users</h3>
+                  <h3 class="card-title">Bordered Table</h3>
                   <div class="d-flex justify-content-end">
                     <div class="mr-3 d-block">
-                      <a href="/user-deleted" class="btn btn-info me-3">User Deleted</a>
-                    </div>
-                    <div class="m">
-                      <a href="/user-add" class="btn btn-primary">User Baru</a>
+                      <a href="user" class="btn btn-dark me-3">Back</a>
                     </div>
                   </div>
                 </div>
@@ -32,26 +28,17 @@
                     <thead>
                       <tr>
                         <th style="width: 10%">No</th>
-                        <th style="width: 40%">User</th>
-                        <th style="width: 30%">Phone</th>
+                        <th style="width: 60%">User</th>
                         <th>Action</th>
                       </tr>
                     </thead>
                     <tbody>
-                    @foreach ($users as $user)
+                    @foreach ($deletedUsers as $user)
                       <tr>
                         <td> {{ $loop->iteration }} </td>
                         <td> {{ $user->username}} </td>
-                        <td>  
-                                @if($user->phone != '')
-                                    {{ $user->phone}}
-                                @else 
-                                <i>belum ada nomor</i>
-                                @endif
-                        </td>
                         <td>
-                          <a href="/user-edit/{{$user->slug}} " class="btn btn-success">Detil</a>
-                          <a href="/user-delete/{{$user->slug}}" class="btn btn-danger">Delete</a>
+                          <a href="/user-restore/{{$user->slug}} " class="btn btn-primary">Restore</a>
                         </td>
                       </tr>
                       @endforeach
@@ -63,4 +50,6 @@
     </div>
 </section>
 
+
  @endsection
+

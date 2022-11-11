@@ -1,5 +1,5 @@
 @extends('layouts.theme')
-@section('title', 'User')
+@section('title', 'User-Baru')
 
 @section('content')
 
@@ -9,13 +9,10 @@
         <div class="card-body">
             <div class="card">
                 <div class="card-header">
-                  <h3 class="card-title">Daftar Users</h3>
+                  <h3 class="card-title">Daftar Users Baru</h3>
                   <div class="d-flex justify-content-end">
-                    <div class="mr-3 d-block">
-                      <a href="/user-deleted" class="btn btn-info me-3">User Deleted</a>
-                    </div>
                     <div class="m">
-                      <a href="/user-add" class="btn btn-primary">User Baru</a>
+                      <a href="/user" class="btn btn-dark">Back</a>
                     </div>
                   </div>
                 </div>
@@ -33,20 +30,20 @@
                       <tr>
                         <th style="width: 10%">No</th>
                         <th style="width: 40%">User</th>
-                        <th style="width: 30%">Phone</th>
+                        <th style="width: 30%">Status</th>
                         <th>Action</th>
                       </tr>
                     </thead>
                     <tbody>
-                    @foreach ($users as $user)
+                    @foreach ($userBaru as $user)
                       <tr>
                         <td> {{ $loop->iteration }} </td>
                         <td> {{ $user->username}} </td>
                         <td>  
-                                @if($user->phone != '')
-                                    {{ $user->phone}}
+                                @if($user->status != '')
+                                    {{ $user->status}}
                                 @else 
-                                <i>belum ada nomor</i>
+                                <i>tidak ada</i>
                                 @endif
                         </td>
                         <td>
