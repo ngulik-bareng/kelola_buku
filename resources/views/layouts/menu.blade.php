@@ -3,7 +3,8 @@
       <!-- Add icons to the links using the .nav-icon class
            with font-awesome or any other icon font library -->
 
-
+      @if (Auth::user())
+          
       {{-- Admin --}}
       @if(Auth::user()->role_id == 1)
       <li class="nav-item">
@@ -69,6 +70,16 @@
         </a>
       </li>
       {{-- End User --}}
+      @endif
+
+      @else
+      <li class="nav-item">
+        <a href="/login" class="nav-link">
+          <i class="far fa-circle nav-icon"></i>
+          <p>Logoin</p>
+        </a>
+      </li>
+
       @endif
 
      
