@@ -23,7 +23,7 @@ class BooksController extends Controller
     public function store(Request $request) 
     {
 
-        // dd($request->all());
+     
 
         $validated = $request->validate([
             'book_code' => 'required|unique:books|max:255',
