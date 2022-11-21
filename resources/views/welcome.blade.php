@@ -3,7 +3,34 @@
 
 @section('content')
 
+
+
 <section class="content">
+{{-- search --}}
+<div class="container py-3">
+    <div class="container-fluid">
+        <form action="" method="get">
+          <div class="row">
+              <div class="col-12 col-sm-6">
+                  <select name="category" id="" class="form-control">
+                    <option value="">select category</option>
+                    @foreach ($categories as $item)
+                        <option value="{{$item->id}}">{{$item->name}} </option>
+                    @endforeach
+                  </select>
+              </div>
+              <div class="col-12 col-sm-6">
+                <div class="input-group">
+                    <input type="text" name="title" class="form-control" placeholder="search book title">
+                    <button type="submit" class="btn btn-outline-success">search</button>
+                </div>
+              </div>
+          </div>
+        </form>
+    </div>
+</div>
+{{-- end search --}}
+
     <div class="container">
         <div class="container-fluid">
             <div class="row">
