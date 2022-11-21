@@ -58,9 +58,9 @@
         </a>
       </li>
       <li class="nav-item">
-        <a href="/books" class="nav-link @if(request()->route()->uri == 'books') active @endif">
+        <a href="/" class="nav-link @if(request()->route()->uri == '/') active @endif">
           <i class="far fa-circle nav-icon"></i>
-          <p>Books</p>
+          <p>List-Books</p>
         </a>
       </li>
       <li class="nav-item">
@@ -76,7 +76,7 @@
       <li class="nav-item">
         <a href="/login" class="nav-link">
           <i class="far fa-circle nav-icon"></i>
-          <p>Logoin</p>
+          <p>Login</p>
         </a>
       </li>
 
