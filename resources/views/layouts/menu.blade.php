@@ -9,7 +9,7 @@
       @if(Auth::user()->role_id == 1)
       <li class="nav-item">
         <a href="/dashboard" class="nav-link @if(request()->route()->uri == 'dashboard') active @endif">
-          <i class="nav-icon fas fa-tachometer-alt"></i>
+          <i class="far fa-circle nav-icon"></i>
           <p>
             Dashboard
           </p>
@@ -31,6 +31,13 @@
       </li>
 
       <li class="nav-item">
+        <a href="/" class="nav-link @if(request()->route()->uri == '/') active @endif">
+          <i class="far fa-circle nav-icon"></i>
+          <p>List-Books</p>
+        </a>
+      </li>
+
+      <li class="nav-item">
         <a href="/user" class="nav-link @if(request()->route()->uri == 'user') active @endif">
           <i class="far fa-circle nav-icon"></i>
           <p>Users</p>
@@ -40,6 +47,12 @@
         <a href="/rentlogs" class="nav-link @if(request()->route()->uri == 'rentlogs') active @endif">
           <i class="far fa-circle nav-icon"></i>
           <p>Rent Logs</p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="/book-rent" class="nav-link @if(request()->route()->uri == 'book-rent') active @endif">
+          <i class="far fa-circle nav-icon"></i>
+          <p>Book Rent</p>
         </a>
       </li>
       <li class="nav-item">

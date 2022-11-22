@@ -15,10 +15,9 @@ class PublicController extends Controller
 
         if ($request->title) {
 
-            $books = Book::where('title', 'like', '%'.$request->title.'%')
-            ->get();
+            $books = Book::where('title', 'like', '%'.$request->title.'%')->get();
 
-        } elseif ($request->category) {
+        } elseif($request->category) {
            $books = Book::whereHas('CategoryBelongsToMany', function($q) use($request) {
                 $q->where('categories.id', $request->category);
             })

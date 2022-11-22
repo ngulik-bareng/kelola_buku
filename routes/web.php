@@ -2,12 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\BooksController;
-use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\BooksController;
 use App\Http\Controllers\PublicController;
+use App\Http\Controllers\BookRentController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\RentLogsController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,7 +60,6 @@ Route::middleware('auth')->group(function() {
         Route::get('category-restore/{slug}', [CategoryController::class, 'restore']);
     
     
-        Route::get('rentlogs', [RentLogsController::class, 'index']);
         Route::get('user', [UserController::class, 'index']);
         Route::get('user-add', [UserController::class, 'userAdd']);
         Route::get('user-edit/{slug}', [UserController::class, 'userEdit']);
@@ -68,7 +68,12 @@ Route::middleware('auth')->group(function() {
         Route::get('user-destroy/{slug}', [UserController::class, 'userDestroy']);
         Route::get('user-deleted', [UserController::class, 'userDeleted']);
         Route::get('user-restore/{slug}', [UserController::class, 'restore']);
+
+        Route::get('book-rent', [BookRentController::class, 'index']);
+        Route::post('book-rent', [BookRentController::class, 'store']);
     });
+
+    Route::get('rentlogs', [RentLogsController::class, 'index']);
 });
 
 
