@@ -38,6 +38,16 @@ class BookRentController extends Controller
         }
         else {
             
+            $count = RentLog::where('users_id', $request->users_id)
+            ->where('actual_return_date', null)->count();
+
+            if($count >= 1) {
+                Session::flash('message', 'Cannot rent, user has reach limit of rent book');
+                Session::flash('alert-class', 'alert-danger');
+                return redirect('book-rent');
+            }
+            
+           
             try {
                 DB::beginTransaction();
                 // proccess insert to rent_logs table
@@ -56,6 +66,7 @@ class BookRentController extends Controller
                 DB::rollBack();
                 // dd($th);
             }
+
         }
 
     }
