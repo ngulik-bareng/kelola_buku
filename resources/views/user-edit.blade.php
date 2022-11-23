@@ -44,6 +44,10 @@
                         <label for="status" class="form-label">Status</label>
                         <input type="text" class="form-control" name="status" readonly id="status" value="{{$user->status}} "  required>
                       </div>
+
+                      <div class="mt-5">
+                        <x-rent-log-table :rentlog='$rent_logs' />
+                      </div>
                 
               </div>
               <!-- /.card -->

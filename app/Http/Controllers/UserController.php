@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\RentLog;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -25,7 +26,9 @@ class UserController extends Controller
 
     public function userEdit($slug) {
         $user = User::where('slug', $slug)->first();
-        return view('user-edit', ['user' => $user]);
+          // with relationship (user , book)
+        $rentlogs = RentLog::with(['user', 'book'])->where('users_id', $user->id)->get();
+        return view('user-edit', ['user' => $user, 'rent_logs' => $rentlogs]);
     }
 
     public function userApprove($slug) {

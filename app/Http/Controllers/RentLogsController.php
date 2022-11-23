@@ -17,7 +17,7 @@ class RentLogsController extends Controller
         $today = Carbon::now()->toDateString();
 
         // with relationship (user , book)
-        $rentlogs = RentLog::with('user', 'book')->get();
+        $rentlogs = RentLog::with(['user', 'book'])->get();
 
         return view('rentlogs', ['rent_logs' => $rentlogs , 'today' => $today]);
     }
