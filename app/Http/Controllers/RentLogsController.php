@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\RentLog;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 
 class RentLogsController extends Controller
 {
@@ -12,6 +14,11 @@ class RentLogsController extends Controller
 
         // $request->session()->flush();
 
-        return view('rentlogs');
+        $today = Carbon::now()->toDateString();
+
+        // with relationship (user , book)
+        $rentlogs = RentLog::with('user', 'book')->get();
+
+        return view('rentlogs', ['rent_logs' => $rentlogs , 'today' => $today]);
     }
 }
