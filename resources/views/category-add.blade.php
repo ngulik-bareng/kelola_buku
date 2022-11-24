@@ -26,7 +26,7 @@
                             <input type="text" class="form-control" name="name" id="category" placeholder="category" required>
                           </div>
                           <div class="d-flex justify-content-end">
-                            <button type="submit" name="button" class="btn btn-primary px-3 d-flex justify-content-end">Tambah</button>
+                            <button type="submit" name="button" class="btn btn-primary px-3 d-flex justify-content-end">Add</button>
                           </div>
                     </form>
                 </div>
