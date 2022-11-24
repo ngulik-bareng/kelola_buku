@@ -37,7 +37,7 @@
 
 
         <div class="login-box p-5 shadow">
-            <form action="" method="post">
+            <form action="/login" method="post">
                 @csrf
                 <div class="">
                      <div class="mb-3">

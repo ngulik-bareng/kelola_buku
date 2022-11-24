@@ -81,6 +81,51 @@ class BookRentController extends Controller
     }
     
     public function onReturn(Request $request) {
-        dd($request->all());
+        // user & buku yang dipilih untuk direturn benar, maka berhasil return book
+        // user & buku yang dipilih untuk direturn salah, maka muncul error notice
+
+        $rent = RentLog::where('users_id', $request->users_id)->where('book_id', $request->book_id)
+        ->where('actual_return_date',  null);
+
+        $rentData = $rent->first();
+        $countData = $rent->count();
+
+        
+        if($countData == 1) {
+            //  return book
+            $rentData->actual_return_date = Carbon::now()->toDateString();
+       
+          
+
+            try {
+                DB::beginTransaction();
+                // proccess insert to rent_logs table
+                // RentLog::create($request->all());
+                // process update book table
+
+                $rentData->actual_return_date = Carbon::now()->toDateString();
+                $rentData->save();
+                $book = Book::findOrFail($request->book_id);
+                $book->status = 'In Stock';
+                $book->save();
+               
+                DB::commit();
+
+                Session::flash('message', 'The book is returned successfully');
+                Session::flash('alert-class', 'alert-success');
+                return redirect('book-return');
+                //code...
+            } catch (Throwable $th) {
+                DB::rollBack();
+                // dd($th);
+            }
+
+          
+        }else {
+            Session::flash('message', 'Cannot return, book has been returned');
+            Session::flash('alert-class', 'alert-danger');
+            return redirect('book-return');
+        }
+
     }
 }
