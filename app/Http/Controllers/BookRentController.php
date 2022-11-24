@@ -15,7 +15,7 @@ class BookRentController extends Controller
 {
     public function index() {
 
-        $users = User::where('id', '!=', 1)->get();
+        $users = User::where('id', '!=', 1)->where('status', '!=', 'inactive')->get();
         // $books = Book::where('status', '=', 'In Stock')->get();
         $books = Book::all();
         return view('book-rent', ['users' => $users, 'books' => $books]);
@@ -69,5 +69,18 @@ class BookRentController extends Controller
 
         }
 
+    }
+
+
+    public function returnBook() {
+       
+        $users = User::where('id', '!=', 1)->where('status', '!=', 'inactive')->get();
+        // $books = Book::where('status', '=', 'In Stock')->get();
+        $books = Book::all();
+        return view('book-return', ['users' => $users, 'books' => $books]);
+    }
+    
+    public function onReturn(Request $request) {
+        dd($request->all());
     }
 }

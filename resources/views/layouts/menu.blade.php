@@ -56,6 +56,12 @@
         </a>
       </li>
       <li class="nav-item">
+        <a href="/book-return" class="nav-link @if(request()->route()->uri == 'book-return') active @endif">
+          <i class="far fa-circle nav-icon"></i>
+          <p>Book Return</p>
+        </a>
+      </li>
+      <li class="nav-item">
         <a href="/logout" class="nav-link">
           <i class="far fa-circle nav-icon"></i>
           <p>Logout</p>

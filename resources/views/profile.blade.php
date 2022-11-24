@@ -1,14 +1,16 @@
 @extends('layouts.theme')
 @section('title', 'Profile')
 
-@section('logname')
-<h1>Welcome {{Auth::user()->username}} </h1>
-@endsection
 
 
 @section('content')
 
 
+<section class="content">
+    <div class="mt-5">
+        <x-rent-log-table :rentlog='$rent_logs' />
+      </div>
+</section>
 
 
  @endsection
