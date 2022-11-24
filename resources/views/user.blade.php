@@ -15,7 +15,7 @@
                       <a href="/user-deleted" class="btn btn-info me-3">User Deleted</a>
                     </div>
                     <div class="m">
-                      <a href="/user-add" class="btn btn-primary">User Baru</a>
+                      <a href="/user-add" class="btn btn-primary">New User</a>
                     </div>
                   </div>
                 </div>

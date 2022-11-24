@@ -9,7 +9,7 @@
         <div class="card-body">
             <div class="card">
                 <div class="card-header">
-                  <h3 class="card-title">Daftar Users Baru</h3>
+                  <h3 class="card-title">Daftar New Users</h3>
                   <div class="d-flex justify-content-end">
                     <div class="m">
                       <a href="/user" class="btn btn-dark">Back</a>

@@ -8,7 +8,7 @@
         <div class="card-body">
             <div class="card">
                 <div class="card-header">
-                  <h3 class="card-title">Bordered Table</h3>
+                  <h3 class="card-title">Category Deleted</h3>
                   <div class="d-flex justify-content-end">
                     <div class="mr-3 d-block">
                       <a href="category" class="btn btn-dark me-3">Back</a>

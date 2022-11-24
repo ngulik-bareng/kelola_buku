@@ -14,7 +14,7 @@
                       <a href="/book-deleted" class="btn btn-info me-3">Book Deleted</a>
                     </div>
                     <div class="m">
-                      <a href="book-add" class="btn btn-primary">Tambah Data</a>
+                      <a href="book-add" class="btn btn-primary">Add New</a>
                     </div>
                   </div>
                 </div>

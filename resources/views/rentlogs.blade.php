@@ -11,12 +11,6 @@
                   <h3 class="card-title">Rent Logs</h3>
              
                   <div class="d-flex justify-content-end">
-                    <div class="mr-3 d-block">
-                      <a href="/book-deleted" class="btn btn-info me-3">Book Deleted</a>
-                    </div>
-                    <div class="m">
-                      <a href="book-add" class="btn btn-primary">Tambah Data</a>
-                    </div>
                   </div>
                 </div>
                 <!-- /.card-header -->

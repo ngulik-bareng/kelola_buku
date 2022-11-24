@@ -8,13 +8,13 @@
         <div class="card-body">
             <div class="card">
                 <div class="card-header">
-                  <h3 class="card-title">Bordered Table</h3>
+                  <h3 class="card-title">Category</h3>
                   <div class="d-flex justify-content-end">
                     <div class="mr-3 d-block">
                       <a href="category-deleted" class="btn btn-info me-3">Category Deleted</a>
                     </div>
                     <div class="m">
-                      <a href="category-add" class="btn btn-primary">Tambah Data</a>
+                      <a href="category-add" class="btn btn-primary">Add New</a>
                     </div>
                   </div>
                 </div>
