@@ -27,6 +27,6 @@ class PublicController extends Controller
 
             $books = Book::all();
         }
-        return view('welcome', ['books' => $books,'categories' => $categories]);
+        return view('index', ['books' => $books,'categories' => $categories]);
     }
 }
